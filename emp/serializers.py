@@ -11,7 +11,7 @@ class ManagerSerializer(serializers.HyperlinkedModelSerializer):
         model = Manager
         fields = '__all__'
 
-class ExecLeaveRequestSerializer(serializers.HyperlinkedModelSerializer):
+class ExecLeaveRequestSerializer(serializers.ModelSerializer):
     class Meta:
         model = ExecLeaveRequest
         fields = '__all__'

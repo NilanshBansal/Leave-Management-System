@@ -27,9 +27,7 @@ class Manager(models.Model):
     Mobile_Number = models.PositiveIntegerField(default=0)
     Email_Address = models.EmailField(max_length=80, unique=True)
     Hire_Date = models.DateField(help_text='Manager joining date')
-    def __str__(self):
-        return '%s %s %s' % (self.Man_No, self.First_Name, self.Last_Name)
-
+    
 class Executive(models.Model):
     Exec_No = models.AutoField(primary_key=True,help_text='Unique Exec no for Executive table')
     First_Name = models.CharField(max_length=14,help_text='Executive first name')
@@ -41,8 +39,6 @@ class Executive(models.Model):
     Email_Address = models.EmailField(max_length=80, unique=True)
     Hire_Date = models.DateField(help_text='Executive joining date')
     Man_ID = models.ForeignKey(Manager, on_delete=models.CASCADE, related_name="Man_ID", default=0)
-    def __str__(self):
-        return '%s %s %s' % (self.Exec_No, self.First_Name, self.Last_Name)
 
 class ExecLeaveRequest(models.Model):
     ExecLeave_Req_ID = models.AutoField(primary_key=True)
@@ -52,12 +48,10 @@ class ExecLeaveRequest(models.Model):
     Begin_Date = models.DateField(help_text='Leave begin date')
     End_Date = models.DateField(help_text='Leave end date')
     Requested_Days = models.PositiveIntegerField(default=0,help_text='Total no of requested leave days')
-    Leave_Status = models.CharField(max_length=10, choices=LEAVE_STATUS)
+    Leave_Status = models.CharField(max_length=10, choices=LEAVE_STATUS, default='PE')
     Exec_Comments = models.CharField(max_length=500, null=True)
 
-    def __str__(self):
-        return '%s %s' % (self.ExecLeave_Req_ID, self.Exec_ID)
-
+    
 
 class LeaveBalance(models.Model):
 
@@ -68,8 +62,6 @@ class LeaveBalance(models.Model):
     Allocated_Days = models.PositiveIntegerField(default=0, help_text='No of leave days allocated to a leave type per '
                                                                       'executive per year')
 
-    def __str__(self):
-        return '%s %s' % (self.Exec_ID, self.Leave_Type)
 
 def create_profile(sender, **kwargs):
     if kwargs['created']:
