@@ -73,6 +73,10 @@ class LeaveBalance(models.Model):
 
 def create_profile(sender, **kwargs):
     if kwargs['created']:
-        User.objects.create_user(username=kwargs['instance'].First_Name, password=kwargs['instance'].password)
+        try:
+            User.objects.create_user(username=kwargs['instance'].Email_Address, password=kwargs['instance'].password)
+        except Exception as e:
+            raise e
 
+post_save.connect(create_profile, sender=Manager)
 post_save.connect(create_profile, sender=Executive)

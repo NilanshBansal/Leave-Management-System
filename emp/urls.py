@@ -3,10 +3,10 @@ from .views import ExecutiveViewSet, ManagerViewSet, ExecLeaveRequestViewSet, Le
 from django.urls import path, include
 
 router = routers.DefaultRouter()
-router.register('executive', ExecutiveViewSet)
-router.register('manager', ManagerViewSet)
-router.register('execleave', ExecLeaveRequestViewSet)
-router.register('leavebalance', LeaveBalanceViewSet)
+router.register('executive', ExecutiveViewSet, base_name='executive')
+router.register('manager', ManagerViewSet, base_name='manager')
+router.register('execleave', ExecLeaveRequestViewSet, base_name='execleave')
+router.register('leavebalance', LeaveBalanceViewSet, base_name='leavebalance')
 
 urlpatterns = [
     path('', include(router.urls)),
