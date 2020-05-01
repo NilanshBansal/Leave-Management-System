@@ -19,7 +19,7 @@ Password: Hello@123
 ### WorkFlow:
 
 1. Superuser can create or remove any Manager and Executive.
-2. Manager can add an employee. Manager can only remove an Executive added by him. 
+2. Manager can add an executive. Manager can only remove an Executive added by him. 
 3. Executive requests for leave and selects for the manager to approve. 
 4. Manager can only view and change the status of the requests which are raised to him. 
 5. Executive can only view and edit the requests raised by him.
