@@ -9,7 +9,6 @@ class ExecutiveCheckPermission(permissions.BasePermission):
 
     def has_permission(self, request, view):
         user=request.user
-        print(user)
         if Executive.objects.filter(Email_Address=user).exists():
             return False
         else:

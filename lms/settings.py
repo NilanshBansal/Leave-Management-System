@@ -25,7 +25,7 @@ SECRET_KEY = '^sg67itf^w6v5bq_=!zlv3r%+92@(61ifl&o#*c8ebz&g+ze&o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,10 +75,15 @@ WSGI_APPLICATION = 'lms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+## Using ElephantSqL Cloud DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'smmbkldm',
+        'USER': 'smmbkldm',
+        'PASSWORD': '2OWpY2DlAwAzuGXa4K83DR__38c-p9hd',
+        'HOST':'drona.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
@@ -120,3 +125,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
