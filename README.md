@@ -16,6 +16,14 @@ Username: nilansh
 Email: bansalnilansh@gmail.com
 Password: Hello@123
 
+### Manager Account
+Username: manager1@gmail.com
+Password: Hello@123
+
+### Executive Account
+Username: executive1@gmail.com
+Password: Hello@123
+ 
 ### WorkFlow:
 
 1. Superuser can create or remove any Manager and Executive.
